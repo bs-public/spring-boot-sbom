@@ -9,3 +9,27 @@ There are multiple SBOM formats out there, the most widely used ones are Cyclone
 - The packaging of the generated SBOM file into the uber jar
 - An actuator endpoint to expose the generated SBOM (if enabled)
 
+
+## SBOM API Endpoints
+
+### Retrieve Available SBOMs
+**GET** `/actuator/sbom`
+Returns a list of available SBOM document IDs.
+
+**Response:**
+```json
+{
+    "ids": [
+        "application"
+    ]
+}
+```
+
+### Retrieving a Single SBOM
+**GET** `/actuator/sbom/{id}`
+
+Returns the detailed Software Bill of Materials (SBOM) for the application in CycloneDX format (or other supported SBOM formats).
+
+**Response:**
+
+See [`sbom.json`](./sbom.json)
